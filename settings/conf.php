@@ -8,7 +8,8 @@ $mysqlpass="my_password";
 $mysqldb="simple_loginv1";
 //////////////////////
 //debug settings//////
-//ok - on    |  log - put in a file    |    none - none
+//ok - on    |  log - put in a file    |    none - none 
+//not implemented yet
 $debug='none';
 
 //////////////////////
