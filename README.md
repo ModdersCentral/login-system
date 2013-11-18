@@ -6,7 +6,8 @@ not stable yet!
 medium login - [25/100%]
 ============
 [100%] Register.
-[70%] main login.
-[70%] checkedlogin
+[100%] main login.
+[70%] usercheckedlogin
+[70%] usercheckedlogin
 
 
