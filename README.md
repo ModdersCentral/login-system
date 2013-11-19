@@ -1,6 +1,7 @@
 login-system
 ============
 not stable yet!
+HOW TO USE: https://github.com/ModdersCentral/login-system/wiki
 [WIP]  -    Work In Progress
 ============
 medium login - [25/100%]
