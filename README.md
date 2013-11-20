@@ -8,7 +8,7 @@ ADD some more error checking for queries, got to have some error checks man<br>
 ADD debug mode [dont know why im putting this in, looks professional??<br>
 ADD buy more days page, greedy for money?<br>
 ADD password forgotten page, for the people that dont take notes.<br>
-ADD install script [once software is complete]
+ADD install script [once software is complete]<br>
 ADD admin panel [once software is complete]
 [optional]Store AKA BuyItNow
 ============
