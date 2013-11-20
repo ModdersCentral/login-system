@@ -4,8 +4,9 @@ if (isset($_GET['id'])){
 if ($ghjdhgjfg=medium_passforgotsendemail($_GET['id'])){echo "error: didnt send change link....... " .$ghjdhgjfg;}else{echo "success: sent change link";}
 
 }else if (isset($_GET['check'])){
-if (medium_passforgotcheckemail($_GET['check'])){echo "success: verified";}else{echo "error: not-verified";}
-
+//put the check code ina textbox and submit with $_GET['change']
+//if (medium_passforgotcheckemail($_GET['check'])){echo "success: verified";}else{echo "error: not-verified";}
+//
 }else{
 ?>
 <html>

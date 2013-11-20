@@ -69,13 +69,20 @@ function medium_register($email,$username,$password,$cpassword,$firstname,$lastn
 //check time left 'incase it expires a little after they've logged in'.
 function medium_checkloggedin($checkisadmin = false){global $mysqli;if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['ipaddress']) && isset($_SESSION['useragent']) && isset($_SESSION['ipaddress'])){if ($fhdfh=$mysqli->query("SELECT * FROM `users` WHERE `username`='" . $mysqli->real_escape_string($_SESSION['username']) . "'")){if($fhdfh->num_rows ==1){$row = $fhdfh->fetch_assoc();if(($_SERVER["REMOTE_ADDR"] == $row["ipaddress"]) && ($_SERVER['HTTP_USER_AGENT'] == $row["useragent"])){if($checkisadmin){if ($row["userlevel"] == 3){return false;}else{return true;}}else{return false;}return false;}else{return true;}}else{return true;}}else{return true;}}else{return true;}}
 //mail untested
-function medium_sendvalidateemail($theuserid){global $mysqli;if (main_validateid($theuserid)){if ($theinfo=$mysqli->query("SELECT * FROM `users` WHERE `id`='".base64_decode($theuserid,true)."'")){if($theinfo->num_rows ==1){$row = $theinfo->fetch_assoc();if ($row['emailverified']==2){$cipher = new Cipher($emalvalidpass . "1");$to      = $row['email'];$subject = 'Email Validation';$message = " link: <a href='emailvalidate.php?check=" .  $cipher->encrypt(base64_decode($theuserid,true)). "'>ccc</a>";$headers = 'From: webmaster@example.com' . "\r\n" .  'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();mail($to, $subject, $message, $headers);return true;}else{return false;}}else{return false;}}else{return false;}}else{return false;}}
+function medium_sendvalidateemail($theuserid){global $mysqli;if (main_validateid($theuserid)){if ($theinfo=$mysqli->query("SELECT * FROM `users` WHERE `id`='".base64_decode($theuserid,true)."'")){if($theinfo->num_rows ==1){$row = $theinfo->fetch_assoc();if ($row['emailverified']==2){$cipher = new Cipher($emalvalidpass . "1");
+$to      = $row['email'];$subject = 'Email Validation';
+$message = " link: <a href='emailvalidate.php?check=" .  $cipher->encrypt(base64_decode($theuserid,true)). "'>ccc</a>";
+$headers = 'From: webmaster@example.com' . "\r\n" .  'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $message, $headers);return true;}else{return false;}}else{return false;}}else{return false;}}else{return false;}}
 function medium_checkvalidateemail($thecomfirmationid){global $mysqli;$cipher = new Cipher($emalvalidpass."1");if (preg_match('/^([0-9]+)$/i', $cipher->decrypt($thecomfirmationid))){$mysqli->query("UPDATE `users` SET `emailverified`='3' WHERE `id`='".$cipher->decrypt($thecomfirmationid)."'");return true;}else{return false;}}
 function medium_passforgotsendemail($theemail){global $mysqli;$cipher = new Cipher($emalvalidpass."2");
 if(filter_var($theemail, FILTER_VALIDATE_EMAIL)){
 if($fghtyh=$mysqli->query("SELECT * FROM `users` WHERE `email`='".$mysqli->real_escape_string($theemail)."'")){
 if($fghtyh->num_rows == 1){
-echo "<a href='passforgot.php?check=". urlencode($cipher->encrypt($theemail)) . "'>click here</a>"; //mail this to there email
+$to      = $theemail;$subject = 'forgot password';
+$message = "<a href='passforgot.php?check=". urlencode($cipher->encrypt($theemail)) . "'>click here</a>";
+$headers = 'From: webmaster@example.com' . "\r\n" .  'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+mail($to, $subject, $message, $headers);
 return false;
 }else{return "email not found";}
 }else{return "query failed";}
@@ -83,8 +90,8 @@ return false;
 }
 
 
-function medium_passforgotcheckemail($thecomfirmationid){global $mysqli;$cipher = new Cipher($emalvalidpass."2");
-echo $cipher->decrypt($thecomfirmationid);
+function medium_passforgotcheckemail($thecomfirmationid,$newpassword,$newcpassword){global $mysqli;$cipher = new Cipher($emalvalidpass."2");
+echo $cipher->decrypt($thecomfirmationid);//WIP
 
 }
 
