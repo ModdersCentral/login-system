@@ -10,3 +10,6 @@ ADD debug mode [dont know why im putting this in, looks professional??<br>
 ADD buy more days page, greedy for money?<br>
 ADD password forgotten page, for the people that dont take notes.<br>
 ADD install script [once software is complete]
+Store AKA BuyItNow
+============
+my users will be able to buy more days/weeks/months/years
