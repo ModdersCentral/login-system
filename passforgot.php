@@ -1,11 +1,24 @@
 <?php include('./settings/main.php');
 
 if (isset($_GET['id'])){
-if (medium_passforgotsendemail($_GET['id'])){echo "success: sent change link";}else{echo "error: didnt send change link";}
+if ($ghjdhgjfg=medium_passforgotsendemail($_GET['id'])){echo "error: didnt send change link....... " .$ghjdhgjfg;}else{echo "success: sent change link";}
 
 }else if (isset($_GET['check'])){
 if (medium_passforgotcheckemail($_GET['check'])){echo "success: verified";}else{echo "error: not-verified";}
 
-}else{}
+}else{
+?>
+<html>
+<head>
+</head>
+<body>
+<form method="get" name="input" action="passforgot.php">
+<input name="id" type="text" placeholder="email"/>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+<?php
+}
 
 ?>
