@@ -82,7 +82,7 @@ if($fghtyh->num_rows == 1){
 $to      = $theemail;$subject = 'forgot password';
 $message = "<a href='passforgot.php?check=". urlencode($cipher->encrypt($theemail)) . "'>click here</a>";
 $headers = 'From: webmaster@example.com' . "\r\n" .  'Reply-To: webmaster@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
-mail($to, $subject, $message, $headers);
+mail($to, $subject, $message, $headers);echo "<a href='passforgot.php?check=". urlencode($cipher->encrypt($theemail)) . "'>click here</a>";
 return false;
 }else{return "email not found";}
 }else{return "query failed";}
@@ -92,6 +92,13 @@ return false;
 
 function medium_passforgotcheckemail($thecomfirmationid,$newpassword,$newcpassword){global $mysqli;$cipher = new Cipher($emalvalidpass."2");
 echo $cipher->decrypt($thecomfirmationid);//WIP
+if (main_validatepassword($newpassword)){
+if ($newpassword == $newcpassword){
+echo "#query to update password here#";
+return true;
+}else{return false;}
+
+}else{return false;}
 
 }
 

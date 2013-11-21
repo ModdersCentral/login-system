@@ -1,4 +1,8 @@
 <?php include('./settings/main.php');
+//
+//COMPLETE
+//
+//
 	if (isset($_POST['email']) && isset($_POST['password'])){
 
 		if ($lol=medium_mainlogin($_POST['email'],$_POST['password'])){

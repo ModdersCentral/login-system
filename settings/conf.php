@@ -8,7 +8,7 @@ $mysqlpass="my_password";
 $mysqldb="simple_loginv1";
 ///////////////////////////
 //email validation password to keep it secure
-//MUST change it for security reasons
+//MUST change it for security reasons... recommended you change it every month. just to be safer
 ///////////////////////////
 $emalvalidpass='supersecurepassword';
 ////////////////////////////
