@@ -1,6 +1,6 @@
 <?php include('./settings/main.php');
 	if (isset($_POST['email']) && isset($_POST['password'])){
-		if ($lol=medium_register($_POST['email'],$_POST['username'],$_POST['password'],$_POST['cpassword'],$_POST['firstname'],$_POST['lastname'],$_POST['dob'])){
+		if ($lol=medium_register($_POST['email'],$_POST['username'],$_POST['password'],$_POST['cpassword'],$_POST['firstname'],$_POST['lastname'],$_POST['dob'],$_POST['capchaimg'])){
 			echo $lol;//fail
 		}else{
 			echo "registered success"; //success
@@ -28,6 +28,9 @@
 				<input name="lastname" type="text" placeholder="lastname"/><br />
 				<label for="dob">DOB (DD/MM/YYYY):</label>
 				<input name="dob" type="text" placeholder="DD/MM/YYYY"/><br />
+				<img src="capcha.php" /><br />
+					<label for="capchaimg">Type image letters:</label>
+				<input name="capchaimg" type="text" /><br />
 				<input type="submit" value="Submit">
 			</form>
 			<hr>
