@@ -1,5 +1,6 @@
 login-system [v1.0]
 ============
+for my security. i haven't added my advanced features :)
 HOW TO USE: https://github.com/ModdersCentral/login-system/wiki
 TODO:
 ============
