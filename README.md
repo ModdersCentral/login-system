@@ -14,4 +14,4 @@ ADD install script [once software is complete]<br>
 ADD admin panel [once software is complete]
 [optional]Store AKA BuyItNow
 ============
-my users will be able to buy more days/weeks/months/years
+my users will be able to buy more days/weeks/months/years<br>LTC: LRr9ZqnKtbrjvfZhme52M5MotUbT2K5Pka
