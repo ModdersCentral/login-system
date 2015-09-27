@@ -41,6 +41,7 @@ class Cipher {
 /////////////////////////MAIN FUNCTIONS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/////////////////////////////////////
+function main_text2bbc($text){ $find = array(  '~\[b\](.*?)\[/b\]~s',  '~\[i\](.*?)\[/i\]~s',  '~\[u\](.*?)\[/u\]~s', '~\[size=(.*?)\](.*?)\[/size\]~s',  '~\[color=(.*?)\](.*?)\[/color\]~s'  );  $replace = array(  '<b>$1</b>', '<i>$1</i>',   '<span style="text-decoration:underline;">$1</span>',  '<span style="font-size:$1px;">$2</span>', '<span style="font-weight: bold;color:$1;">$2</span>'  ); return preg_replace($find,$replace,$text); } 
 function main_validateid($theid){if ($dfds=base64_decode($theid,true)){if(preg_match('/^([1-9]|[1-9][0-9]+)$/i', $dfds)){return $dfds;}else{return false;}}else{return false;}}
 function main_validateusername($username){if (preg_match('/^[a-zA-Z0-9_-]{3,30}$/i', $username)) {return true;}else{ return false;}}
 function main_validatepassword($password){if (preg_match('/^[a-zA-Z0-9_-]{3,30}$/i', $password)) {return true;}else{ return false;}}
